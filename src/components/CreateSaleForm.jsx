@@ -52,12 +52,9 @@ const [selectedProductQuantity, setSelectedProductQuantity] = useState(0);
 
   const handleProductChange = async (index, product) => {
     try {
-        console.log(`${API_BASE_URL}/latest-sale-price/${product.id}`);
 
-        const response = await fetch(`${API_BASE_URL}/latest-sale-price/${product.id}`);
-        if (!response.ok) {
-        throw new Error('Error al obtener el precio unitario');
-      }
+     const response = await fetch(`${API_BASE_URL}/latest-sale-price/${product.id}`);
+      
 
       const latestSalePrice  = await response.json();
       const updatedItems = [...formData.items];
@@ -128,10 +125,7 @@ const [selectedProductQuantity, setSelectedProductQuantity] = useState(0);
 // ... (código anterior)
 
 try {
-  // Realizar salida de inventario
-  console.log("---------------salida-----------------");
-  console.log(selectedProductId);
-  console.log(selectedProductQuantity);
+  
 
   const exitResponse = await fetch(`${API_BASE_URL}/inventory/exit`, {
     method: 'POST',
@@ -144,13 +138,7 @@ try {
     }),
   });
 
-  if (!exitResponse.ok) {
-    console.error('Error en la salida de inventario:', exitResponse.statusText);
-    // Manejar errores según sea necesario
-    return;
-  }
 
-  console.log('Formulario antes de enviar:', JSON.stringify(formData));
 
   const salesResponse = await fetch(`${API_BASE_URL}/sales`, {
     method: 'POST',
@@ -160,11 +148,7 @@ try {
     body: JSON.stringify(formData),
   });
 
-  if (!salesResponse.ok) {
-    console.error('Error al crear la venta:', salesResponse.statusText);
-    // Manejar errores según sea necesario
-    return;
-  }
+
 
   const newSaleData = await salesResponse.json();
   console.log('Venta creada exitosamente:', newSaleData);

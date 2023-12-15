@@ -1,0 +1,42 @@
+body{padding: 0;margin: 0; text-align: center; font-family: Verdana, Geneva, sans-serif; color: gray;}
+
+.titulo
+{
+  background: linear-gradient(
+    to right, 
+    rgba(254,175,6,1) 10%, 
+    rgba(239,89,48,1) 40%, 
+    rgba(112,35,127,1) 60%, 
+    rgba(37,100,183,1) 90%);
+  text-align: center;
+  color: #fff;
+  font-family: tahoma;
+  font-weight: lighter;
+}
+
+.titulo span
+{
+  padding: .5em;
+  display: block;  
+  text-transform: uppercase;
+}
+
+.invertido
+{
+  background: linear-gradient(
+    to right, 
+    rgba(254,175,6,1) 30%, 
+    rgba(239,89,48,1) 45%, 
+    rgba(112,35,127,1) 55%, 
+    rgba(37,100,183,1) 70%);  
+}
+
+.invertido span
+{
+  background-color: white;
+  color: #333;
+  mix-blend-mode: screen;
+  box-shadow: 
+    inset 0 1px 0 0 black,
+    inset 0 -1px 0 0 black;
+}
